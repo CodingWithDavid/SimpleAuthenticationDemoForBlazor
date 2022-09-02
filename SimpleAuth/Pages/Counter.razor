@@ -1,0 +1,22 @@
+﻿@page "/counter"
+
+<PageTitle>Counter</PageTitle>
+
+<article class="pl-8 pr-3 pt-4 block"> 
+    <span tabindex="-1" class="text-3xl font-medium leading-tight mb-1 mt-0">Counter</span> 
+ 
+    <p role="status" class="mt-0 mb-4 ">Current count: @currentCount</p> 
+ 
+    <button @onclick="IncrementCount" class="w-24 h-10 cursor-pointer text-white bg-blue-600 border-blue-600 inline-block font-semibold border-4 border-solid border-opacity-100 rounded-md"> 
+        Click me 
+    </button> 
+</article> 
+
+@code {
+    private int currentCount = 0;
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+}

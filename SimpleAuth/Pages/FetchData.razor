@@ -1,0 +1,51 @@
+﻿@page "/fetchdata"
+
+<PageTitle>Weather forecast</PageTitle>
+
+@using SimpleAuth.Data
+@inject WeatherForecastService ForecastService
+
+<article class="pl-4 pr-3 pt-0 block"> 
+ 
+    <span class="border-none text-3xl font-medium leading-tight mb-1 mt-0">Weather forecast</span> 
+ 
+    <p class="mt-0 mb-4">This component demonstrates fetching data from a service.</p> 
+ 
+    @if (forecasts == null) 
+    { 
+        <p><em>Loading...</em></p> 
+    } 
+    else 
+    { 
+        <table class="min-w-full mb-4 text-slate-800 border-gray-200"> 
+            <thead class="bg-white border-b border-black"> 
+                <tr> 
+                    <th scope="col" class="text-md font-bold text-gray-900 px-6 py-4 text-left">Date</th> 
+                    <th scope="col" class="text-md font-bold text-gray-900 px-6 py-4 text-right">Temp. (C)</th> 
+                    <th scope="col" class="text-md font-bold text-gray-900 px-6 py-4 text-right">Temp. (F)</th> 
+                    <th scope="col" class="text-md font-bold text-gray-900 px-6 py-4 text-left">Summary</th> 
+                </tr> 
+            </thead> 
+            <tbody class="border-solid border-width-0"> 
+                @foreach (var forecast in forecasts) 
+                { 
+                    <tr class="border-b border-solid border-gray-300 p-2"> 
+                        <td class="text-md text-gray-700 px-2 py-2 whitespace-nowrap">@forecast.Date.ToShortDateString()</td> 
+                        <td class="text-md text-gray-700 px-2 py-2 whitespace-nowrap">@forecast.TemperatureC</td> 
+                        <td class="text-md text-gray-700 px-2 py-2 whitespace-nowrap">@forecast.TemperatureF</td> 
+                        <td class="text-md text-gray-700 px-2 py-2 whitespace-nowrap">@forecast.Summary</td> 
+                    </tr> 
+                } 
+            </tbody> 
+        </table> 
+    } 
+</article> 
+
+@code {
+    private WeatherForecast[]? forecasts;
+
+    protected override async Task OnInitializedAsync()
+    {
+        forecasts = await ForecastService.GetForecastAsync(DateTime.Now);
+    }
+}

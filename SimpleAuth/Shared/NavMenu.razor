@@ -1,0 +1,88 @@
+﻿    <nav class="navbar navbar-expand-lg shadow-md py-2 bg-white relative flex items-center w-full justify-between">
+      <div class="px-6 w-full flex flex-wrap items-center justify-between">
+        <div class="flex items-center">
+          <button class="navbar-toggler border-0 py-3 md:hidden leading-none text-xl bg-transparent text-gray-600 hover:text-gray-700 focus:text-gray-700 transition-shadow duration-150 ease-in-out mr-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContentY" aria-controls="navbarSupportedContentY" aria-expanded="false" aria-label="Toggle navigation" @onclick=ToggleNavMenu>
+            <svg aria-hidden="true" focusable="false" data-prefix="fas" class="w-5" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+              <path fill="currentColor" d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"></path>
+            </svg>
+          </button>
+        </div>
+        <div class="navbar-collapse collapse grow items-center @NavMenuCssClass md:block" id="navbarSupportedContentY">
+          <ul class="navbar-nav mr-auto md:flex md:flex-row text-2xl">
+            <li class="nav-item  @homeActive m-3 rounded-lg" @onclick="()=> ApplyActiveStyles(1)">
+              <a class="nav-link block pr-2 lg:px-2 py-2 text-gray-600 hover:text-gray-700 focus:text-gray-700 transition duration-150 ease-in-out"
+                href="#!" data-mdb-ripple="true" data-mdb-ripple-color="light">Home</a>
+            </li>
+            <li class="nav-item @counterActive hover:bg-blue-400 rounded-lg m-3" @onclick="()=>ApplyActiveStyles(2)">
+              <a class="nav-link block pr-2 lg:px-2 py-2 text-gray-600 hover:text-gray-700 focus:text-gray-700 transition duration-150 ease-in-out"
+                href="counter" data-mdb-ripple="true" data-mdb-ripple-color="light">Counter</a>
+            </li>
+            <li class="nav-item @featchDataActive hover:bg-blue-400 rounded-lg m-3" @onclick="()=>ApplyActiveStyles(3)">
+              <a class="nav-link block pr-2 lg:px-2 py-2 text-gray-600 hover:text-gray-700 focus:text-gray-700 transition duration-150 ease-in-out"
+                href="fetchdata" data-mdb-ripple="true" data-mdb-ripple-color="light">Fetch Data</a>
+            </li>
+            <li class="nav-item hover:bg-blue-400 m-3 rounded-lg">
+              <a class="nav-link block pr-2 lg:px-2 py-2 text-gray-600 hover:text-gray-700 focus:text-gray-700 transition duration-150 ease-in-out"
+                href="https://docs.microsoft.com/aspnet/" target="_blank" data-mdb-ripple="true" data-mdb-ripple-color="light">About</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+@code {
+    private bool collapseNavMenu = true;
+
+    private string? NavMenuCssClass => collapseNavMenu ? "hidden" : null;
+    private string homeActive = "bg-blue-200";
+    private string counterActive = "";
+    private string featchDataActive = "";
+    private string aboutActive = "";
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+
+    private void ApplyActiveStyles(int index)
+    {
+        switch(index)
+        {
+            case 1:
+                {
+                    homeActive = "bg-blue-200";
+                    counterActive = "";
+                    featchDataActive = "";
+                    aboutActive = "";
+                    break;
+                }
+
+            case 2:
+                {
+                    homeActive = "";
+                    counterActive = "bg-blue-200";
+                    featchDataActive = "";
+                    aboutActive = "";
+                    break;
+                }
+
+            case 3:
+                {
+                    homeActive = "";
+                    counterActive = "";
+                    featchDataActive = "bg-blue-200";
+                    aboutActive = "";
+                    break;
+                }
+
+            case 4:
+                {
+                    homeActive = "";
+                    counterActive = "";
+                    featchDataActive = "";
+                    aboutActive = "bg-blue-200";
+                    break;
+                }
+        }
+    }
+}
