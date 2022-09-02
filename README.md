@@ -3,12 +3,12 @@
 This application shows how to add a simple, no database, no Identity server, all self contained authentication process into a small project
 
 
-by [David Gallivan](http://twitter.com/CodingwithDavid)
+by [CodingWithDavid](http://twitter.com/CodingwithDavid)
 
 
 ## Why
 
-I have several users cases where I need authentication for a simple app or project. Most of these use cases have a maximum of 5 users.  I do not want to have to stand up a database or use an existing database just for the authentication part of the application.  I now can use this simple method.
+I have several use cases where I need authentication for a simple app or project. Most of these use cases have a maximum of 5 users.  I do not want to have to stand up a database or use an existing database just for the authentication part of the application.  I now can use this simple method.
 
 ## Getting Started
 
