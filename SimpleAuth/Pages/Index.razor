@@ -2,24 +2,14 @@
 
 <PageTitle>Index</PageTitle>
 
-@*<article class="pl-8 pr-5" tabindex="-1"> 
-   <span tabindex="-1" class="border-none text-3xl font-medium leading-tight mb-1 mt-0">Hello, world!</span> <br/>
-
-    Welcome to your new app. 
- 
-    <SurveyPrompt Title="How is Blazor working for you?" /> 
- 
-</article>*@ 
-
 <AuthorizeView>
     <Authorized>
-        <p>Welcome, @context.User.Identity.Name </p>
+        <p>Welcome, @context.User.Identity!.Name </p>
     </Authorized>
 
     <NotAuthorized>
         <p>You are signed out!!</p>
-    </NotAuthorized>
-    
+    </NotAuthorized>    
 </AuthorizeView>
 
 @code{

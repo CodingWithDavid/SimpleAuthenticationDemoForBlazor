@@ -1,7 +1,7 @@
 using Blazored.SessionStorage;
-using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
-using Microsoft.AspNetCore.Components.Web;
+
+//locals
 using SimpleAuth.Data;
 using SimpleAuth.Services;
 
@@ -12,6 +12,8 @@ builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<WeatherForecastService>();
 builder.Services.AddSingleton<AuthService>();
+
+builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<AuthenticationStateProvider, CustomAuthenicationStateProvider>();
 builder.Services.AddBlazoredSessionStorage();
 
